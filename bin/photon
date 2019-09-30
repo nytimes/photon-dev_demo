@@ -1,0 +1,117 @@
+#!/usr/bin/env bash
+
+function install_dev_project {
+    echo "*** installing ${PWD##*/}"
+    pip3 install --editable . --upgrade -r requirements.txt -r requirements_dev.txt
+    pip list | grep -F /photon
+}
+
+function install_dev_all {
+    echo '*** installing requirements for building docs'
+    pip3 install -r docs/requirements.txt
+
+    echo '*** installing common packages as editable, if present'
+
+    if [[ -d photon-common_demo ]]
+    then
+        if pip3 install --editable photon-common_demo --upgrade \
+            -r photon-common_demo/requirements.txt \
+            -r photon-common_demo/requirements_dev.txt
+        then
+            echo photon-common_demo install succeeded
+        fi
+    fi
+
+    echo '*** installing each subproject as editable, if possible'
+
+    if [[ -n  photon-* ]]
+    then
+        for photonsubdir in photon-*/
+        do
+            if [[ ${photonsubdir} != photon-common_demo ]]
+            then
+                if pip3 install --editable ${photonsubdir} --upgrade \
+                    -r ${photonsubdir}/requirements.txt \
+                    -r ${photonsubdir}/requirements_dev.txt
+                then
+                    echo ${photonsubdir} install succeeded
+                fi
+            fi
+        done
+    fi
+
+    pip list | grep -F /photon
+}
+
+function create_activate_install {
+    echo '*** creating virtual environment'
+    python3 -m venv venv
+    activate_environment
+    pip3 install pip --upgrade
+    pip3 install setuptools wheel twine --upgrade
+    shopt -s nullglob
+    install_dev_all
+    shopt -u nullglob
+}
+
+function install_if_missing {
+    found=$(pip list | grep -F ${PWD##*/})
+
+    if [[ -z $found ]]
+    then
+        install_dev_project
+    fi
+}
+
+function push_subshell {
+    PROJECT_ID=$(gcloud config get-value project)
+
+    # using --init-file from a temporary named pipe blocks the subshell from exiting
+    subshell=true \
+        PROJECT_ID=${PROJECT_ID} \
+        GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/${PROJECT_ID}_member.json \
+        bash --init-file <(echo "echo '*** photon subshell - <ctrl>D to exit & deactivate'")
+
+    deactivate
+    echo '*** subshell exited and virtual environment deactivated'
+}
+
+function activate_environment {
+    echo '*** activating virtual environment'
+    source venv/bin/activate
+    pip list | grep -F /photon
+}
+
+
+if [ $VIRTUAL_ENV ]
+then
+    echo '*** a virtual environment is already active'
+else
+    if [[ ${PWD##*/} == photon-dev_demo ]] && [ -d venv ]
+    then
+        activate_environment
+        push_subshell
+    elif [[ ${PWD##*/} == photon-* ]] && [ -d ../venv ]
+    then
+        pushd ..
+            activate_environment
+        popd
+
+        install_if_missing
+        push_subshell
+    elif [[ ${PWD##*/} == photon-dev_demo ]]
+    then
+        create_activate_install
+        push_subshell
+    elif [[ ${PWD##*/} == photon-* ]]
+    then
+        pushd ..
+            create_activate_install
+        popd
+
+        install_if_missing
+        push_subshell
+    else
+        echo '*** not in a photon project directory'
+    fi
+fi
