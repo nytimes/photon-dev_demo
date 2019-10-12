@@ -3,8 +3,8 @@
     :hidden:
 
     Photon Dev <photon-dev_demo/index>
-    Photon App <photon-app_demo/index>
-    Photon Common <photon-common_demo/index>
+    Photon Application <photon-demo-util/index>
+    Photon Common <photon-common-demo/index>
 
 NYT Photon Applications
 =======================
@@ -23,5 +23,3 @@ Resources
 
 * `GitHub <https://github.com/nytimes/photon-dev_demo/>`__
 * `Issues <https://github.com/nytimes/photon-dev_demo/issues>`__
-* `Stack Overflow <http://stackoverflow.com/questions/tagged/google-cloud-python>`__
-* `PyPI <https://pypi.org/project/google-cloud/>`__

@@ -200,15 +200,4 @@ autodoc_default_options = {"members": None, "show-inheritance": None}
 autosummary_generate = True
 
 # Configuration for intersphinx:
-intersphinx_mapping = {
-    "google-cloud": (
-        "https://google-cloud-python.readthedocs.io/en/stable/",
-        None,
-    ),  # added by ml
-    "google-auth": ("https://google-auth.readthedocs.io/en/stable", None),
-    "google-gax": ("https://gax-python.readthedocs.io/en/latest/", None),
-    "grpc": ("https://grpc.io/grpc/python/", None),
-    "requests": ("http://docs.python-requests.org/en/master/", None),
-    "pandas": ("http://pandas.pydata.org/pandas-docs/stable/", None),
-    "python": ("https://docs.python.org/3", None),
-}
+intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
