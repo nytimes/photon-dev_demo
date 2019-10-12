@@ -31,7 +31,6 @@ Follow these steps to get started with exploring and running the Photon developm
 
 ```
 brew install imagemagick
-
 ```
 
 ### Installation
@@ -40,14 +39,12 @@ brew install imagemagick
 
 ```
 git clone https://github.com/nytimes/photon-dev_demo.git
-
 ```
 
 2. Copy `bin/photon` into `/usr/local/bin`:
 
 ```
 cp bin/photon /usr/local/bin
-
 ```
 
 3. Clone Photon family projects into this project (as subdirectories):
@@ -55,14 +52,12 @@ cp bin/photon /usr/local/bin
 ```
 git clone https://github.com/nytimes/photon-demo-util.git
 git clone https://github.com/nytimes/photon-common-demo.git
-
 ```
 
 4. Within any part of the "**MONTY**" structure, activate the development environment:
 
 ```
 source photon
-
 ```
 
 5. Now you're ready to explore and learn more (about the system)[#about-the-system].
@@ -109,7 +104,6 @@ Photon Application (`photon-demo-util`) is a simple implementation of a Photon a
 demo_util --help
 demo_util demo --help
 demo_util demo -e
-
 ```
 
 Following the code from the entrypoint onwards will allow you to get familiar with the application structure and how it utilizes threads. The application implements **failfast** and **startfast**, and uses **pluggy**-based plugins for image transforms. Comments throughout the code provide additional context.
