@@ -60,19 +60,19 @@ git clone https://github.com/nytimes/photon-common-demo.git
 source photon
 ```
 
-5. Now you're ready to explore and learn more (about the system)[#about-the-system].
+5. Now you're ready to explore and learn more [about the system](#about-the-system).
 
 ### Checking code quality
 
 Within each subproject, use the following commands to check code quality and formatting. The **flake8** `--max-line-length=88` option makes it compatible with **black**'s default formatting. For **mypy**, pass in each path you'd like to check that contains Python files.
 
-* `black --check .``
+* `black --check .`
 * `flake8 --max-line-length=88`
 * `mypy --strict --namespace-packages --ignore-missing-imports photon`
 
 ### Exiting / cleaning up
 
-If you'd like to retain the virtual environment that `source photon` built, simply `exit`. Running `source photon` again will re-instantiate the venv.
+If you'd like to retain the virtual environment that `source photon` built, simply `exit`. Running `source photon` again will reinstantiate the venv.
 
 If you'd like to delete the venv and reinstall it, `exit`, run `rm -rf venv` from within `photon-dev_demo`, and `source photon` again.
 
@@ -94,7 +94,7 @@ The `docs/` directory has the objects necessary to do a **sphinx** build of the 
 1. `cd docs/` then `make html` will build the html version
 2. `open _build/html/index.html` will display it in your default browser
 
-You can also do this at the subproject level, but the resulting html will only include the docs for that subproject. Generated docs at the `photon-dev_demo` level will include all subjects that are properly linked.
+You can also do this at the subproject level, but the resulting html will only include the docs for that subproject. Generating docs at the `photon-dev_demo` level will include all subprojects that are properly linked.
 
 ### Photon Application
 
@@ -116,8 +116,8 @@ Each Photon application would contain its own `Dockerfile` and be deployed indiv
 
 Photon Common (`photon-common-demo`) provides examples of shared classes and methods for Photon applications, such as utilities for logging and interacting with time-based objects. This is also where we include wrappers around often-used libraries and tools such as `exiftool`.
 
-Photon common libraries can be packaged and distributed individually which Photon applications can add to their `requirements.txt`.
+Photon common libraries can be packaged and distributed individually - Photon applications can then add them to their `requirements.txt`.
 
 ## Questions, Comments, or Feedback
 
-If you have any questions, comments, or feedback, feel free to reach out by adding an issue [here](https://github.com/nytimes/photon-dev_demo/issues).
+If you have any questions, comments, or feedback, feel free to reach out by adding an issue [here](https://github.com/nytimes/photon-dev_demo/issues)!
