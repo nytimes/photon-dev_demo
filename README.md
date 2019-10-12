@@ -5,11 +5,11 @@ Hello! 👋
 This demo supplements the "Sustainable Systems, Powered By Python" talk presented by Michael Laing and Sharon Tartarone at All Things Open 2019 and illustrates key concepts, including:
 
 * the "MONTY" repository structure
-* installation and configurable runs ((setuptools)[https://setuptools.readthedocs.io] and (click)[https://click.palletsprojects.com])
-* code quality and type checking ((black)[https://black.readthedocs.io/en/stable/], (flake8)[http://flake8.pycqa.org], and (mypy)[https://mypy.readthedocs.io])
-* feature addition ((pluggy)[https://pluggy.readthedocs.io/en/latest/])
+* installation and configurable runs ([setuptools](https://setuptools.readthedocs.io) and [click](https://click.palletsprojects.com))
+* code quality and type checking ([black](https://black.readthedocs.io/en/stable/), [flake8](http://flake8.pycqa.org), and [mypy](https://mypy.readthedocs.io))
+* feature addition ([pluggy](https://pluggy.readthedocs.io/en/latest/))
 * resilient runtime (failfast and startfast)
-* automated documentation ((sphinx)[http://www.sphinx-doc.org/en/master/])
+* automated documentation ([sphinx](http://www.sphinx-doc.org/en/master/))
 
 The complete demo consists of the following repositories:
 
@@ -25,9 +25,9 @@ Follow these steps to get started with exploring and running the Photon developm
 
 1. The code runs within macOS and Ubuntu environments, but has not been tested in Windows environments.
 
-2. At least (Python v3.7)[https://www.python.org/downloads/]
+2. At least [Python v3.7](https://www.python.org/downloads/)
 
-3. The application uses Wand, an (ImageMagick)[http://www.imagemagick.org/] binding for Python. To use the library, you will need ImageMagick installed:
+3. The application uses Wand, an [ImageMagick](http://www.imagemagick.org/) binding for Python. To use the library, you will need ImageMagick installed:
 
 ```
 brew install imagemagick
@@ -98,7 +98,7 @@ You can also do this at the subproject level, but the resulting html will only i
 
 ### Photon Application
 
-Photon Application (`photon-demo-util`) is a simple implementation of a Photon application structure - thread-based and invokable via a command-line utility. Each application's `setup.py` defines a (console script)[https://github.com/nytimes/photon-demo-util/blob/master/setup.py#L28] entrypoint that invokes the **click** CLI for running and interacting with the application:
+Photon Application (`photon-demo-util`) is a simple implementation of a Photon application structure - thread-based and invokable via a command-line utility. Each application's `setup.py` defines a [console script](https://github.com/nytimes/photon-demo-util/blob/master/setup.py#L28) entrypoint that invokes the **click** CLI for running and interacting with the application:
 
 ```
 demo_util --help
@@ -120,4 +120,4 @@ Photon common libraries can be packaged and distributed individually which Photo
 
 ## Questions, Comments, or Feedback
 
-If you have any questions, comments, or feedback, feel free to reach out by adding an issue (here)[https://github.com/nytimes/photon-dev_demo/issues].
+If you have any questions, comments, or feedback, feel free to reach out by adding an issue [here](https://github.com/nytimes/photon-dev_demo/issues).
