@@ -67,9 +67,10 @@ source photon
 
 Within each subproject, use the following commands to check code quality and formatting. The **flake8** `--max-line-length=88` option makes it compatible with **black**'s default formatting. For **mypy**, pass in each path you'd like to check that contains Python files.
 
+* `cd <subproject>`
 * `black --check .`
 * `flake8 --max-line-length=88`
-* `mypy --strict --namespace-packages --ignore-missing-imports photon`
+* `mypy --strict --namespace-packages --ignore-missing-imports <subproject dirs>`
 
 ### Exiting / cleaning up
 
