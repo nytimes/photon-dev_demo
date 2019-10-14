@@ -44,6 +44,7 @@ git clone https://github.com/nytimes/photon-dev_demo.git
 2. Copy `bin/photon` into `/usr/local/bin`:
 
 ```
+cd photon-dev_demo
 cp bin/photon /usr/local/bin
 ```
 
