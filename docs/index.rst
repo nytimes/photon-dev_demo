@@ -2,7 +2,6 @@
     :maxdepth: 1
     :hidden:
 
-    Photon Dev <photon-dev_demo/index>
     Photon Application <photon-demo-util/index>
     Photon Common <photon-common-demo/index>
 
